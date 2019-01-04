@@ -1,0 +1,22 @@
+topic: ~topic()
+
+# Partner request #12398
+# It is not possible to use an ^execute inside of choice delimiter.
+# Use instead a ^goto(bookmark) to go to a proposal which contains the ^execute.
+
+# This topic shows that this workaround causes unexpected behaviour: if the users says "bad", the robot doesn't react to an answer (yes or no)
+
+u:(good) ^enableThenGoto(good)
+u:(test) ^enableThenGoto(alsoGood)
+u:(bad) ^enableThenGoto(bad)
+
+proposal: %good this is good [^enableThenGoto(something) weNeedChoice] ^enableThenGoto(choice)
+proposal: %alsoGood look at this animation ^execute(animation, affirmation_a001) ^enableThenGoto(choice)
+proposal: %bad this is bad [^enableThenGoto(someAnimation) weNeedChoice] ^enableThenGoto(choice)
+
+proposal: %choice yes or no?
+    u1:(yes) yes
+    u1:(no) no
+
+proposal: %something hey
+proposal: %someAnimation ^execute(executor)
