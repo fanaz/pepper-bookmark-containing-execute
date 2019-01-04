@@ -9,10 +9,12 @@ topic: ~topic()
 u:(good) ^enableThenGoto(good)
 u:(test) ^enableThenGoto(alsoGood)
 u:(bad) ^enableThenGoto(bad)
+u:(fail) ^enableThenGoto(fail)
 
 proposal: %good this is good [^enableThenGoto(something) weNeedChoice] ^enableThenGoto(choice)
 proposal: %alsoGood look at this animation ^execute(animation, affirmation_a001) ^enableThenGoto(choice)
 proposal: %bad this is bad [^enableThenGoto(someAnimation) weNeedChoice] ^enableThenGoto(choice)
+proposal: %fail even this is not working ^enableThenGoto(someAnimation) ^enableThenGoto(choice)
 
 proposal: %choice yes or no?
     u1:(yes) yes
