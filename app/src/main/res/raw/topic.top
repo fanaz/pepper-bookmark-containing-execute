@@ -12,7 +12,7 @@ u:(bad) ^enableThenGoto(bad)
 u:(fail) ^enableThenGoto(fail)
 
 proposal: %good this is good [^enableThenGoto(something) weNeedChoice] ^enableThenGoto(choice)
-proposal: %alsoGood look at this animation ^execute(animation, affirmation_a001) ^enableThenGoto(choice)
+proposal: %alsoGood look at this animation ^execute(executor, animationXXX) ^enableThenGoto(choice)
 proposal: %bad this is bad [^enableThenGoto(someAnimation) weNeedChoice] ^enableThenGoto(choice)
 proposal: %fail even this is not working ^enableThenGoto(someAnimation) ^enableThenGoto(choice)
 
@@ -21,4 +21,4 @@ proposal: %choice yes or no?
     u1:(no) no
 
 proposal: %something hey
-proposal: %someAnimation ^execute(executor)
+proposal: %someAnimation ^execute(executor, animationXXX)
